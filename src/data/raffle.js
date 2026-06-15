@@ -1,9 +1,9 @@
 export const raffleInfo = {
   title: 'Gran Sorteo Clementina',
-  subtitle: '¡Participá y ganá increíbles premios de moda!',
+  subtitle: '¡Participá y ganá una camioneta',
   description:
-    'Cada boleto es una oportunidad de llevarte prendas exclusivas de nuestra colección. El sorteo se realiza en vivo a través de nuestras redes sociales.',
-  prize: 'Kit completo de indumentaria valorado en $150.000',
+    'Cada boleto es una oportunidad de llevarte la camioneta. El sorteo se realiza en vivo a través de nuestras redes sociales.',
+  prize: 'Volkswagen Amarok 2020',
   drawDate: '30 de Julio 2025',
   drawMethod: 'Sorteo en vivo por Instagram @clementina.ropa',
   images: ['/images/sorteo-hero.jpg'],
@@ -25,4 +25,4 @@ export const paymentInfo = {
   cuit: '27-30000000-3',
 }
 
-export const whatsappNumber = '5491100000000'
+export const whatsappNumber = '+5493815757844'
