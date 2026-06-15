@@ -37,7 +37,7 @@ export function HeroSection() {
         <img
           src={logo}
           alt="Clementina"
-          className="mb-6 h-20 w-auto object-contain"
+          className="mb-6 h-auto w-full object-cover"
         />
 
         {/* Badge */}
