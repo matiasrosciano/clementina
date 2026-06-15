@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { HeroSection } from '@/components/HeroSection'
 import { TicketOptions } from '@/components/TicketOptions'
+import { ContactSection } from '@/components/ContactSection'
 import { PurchaseDrawer } from '@/components/PurchaseDrawer'
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
     <div className="min-h-dvh bg-white">
       <HeroSection />
       <TicketOptions onSelect={setSelectedPack} />
+      <ContactSection />
       <PurchaseDrawer
         pack={selectedPack}
         open={!!selectedPack}

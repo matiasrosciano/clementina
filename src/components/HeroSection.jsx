@@ -1,4 +1,5 @@
 import { raffleInfo } from '@/data/raffle'
+import logo from '@/data/logo.webp'
 import { Particles } from '@/components/ui/particles'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { CalendarDays, Gift, Tv2, ChevronDown } from 'lucide-react'
@@ -32,6 +33,13 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-16 pb-8 text-center">
+        {/* Logo */}
+        <img
+          src={logo}
+          alt="Clementina"
+          className="mb-6 h-20 w-auto object-contain"
+        />
+
         {/* Badge */}
         <div className="mb-5 inline-flex items-center rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5">
           <AnimatedShinyText
@@ -66,8 +74,14 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="relative z-10 flex justify-center pb-6 opacity-30">
-        <ChevronDown className="h-5 w-5 animate-bounce text-zinc-500" />
+      <div className="relative z-10 flex justify-center pb-6">
+        <button
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+          className="opacity-30 transition-opacity hover:opacity-70"
+          aria-label="Ir hacia abajo"
+        >
+          <ChevronDown className="h-5 w-5 animate-bounce text-zinc-500" />
+        </button>
       </div>
     </section>
   )
