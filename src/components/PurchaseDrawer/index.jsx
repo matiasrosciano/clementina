@@ -34,23 +34,27 @@ export function PurchaseDrawer({ pack, open, onClose }) {
 
   return (
     <Drawer open={open} onOpenChange={handleOpenChange}>
-      <DrawerContent className="max-h-[90dvh] overflow-y-auto">
-        <DrawerHeader className="relative flex items-center justify-between px-4 pt-4 pb-2">
-          <DrawerTitle>
+      <DrawerContent className="max-h-[92dvh] flex flex-col">
+        {/* Header fijo — nunca se oculta */}
+        <DrawerHeader className="relative shrink-0 flex items-center justify-between px-4 pt-4 pb-2">
+          <DrawerTitle className="text-zinc-900">
             {step === 'form' ? 'Tus datos' : 'Datos de pago'}
           </DrawerTitle>
           <DrawerClose asChild>
-            <button className="rounded-full p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-700 transition-colors">
+            <button className="rounded-full p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors">
               <X className="h-5 w-5" />
             </button>
           </DrawerClose>
         </DrawerHeader>
 
-        {step === 'form' ? (
-          <ContactForm pack={pack} onSubmit={handleFormSubmit} />
-        ) : (
-          <PaymentInfo pack={pack} contact={contact} />
-        )}
+        {/* Contenido scrolleable */}
+        <div className="overflow-y-auto overscroll-contain flex-1">
+          {step === 'form' ? (
+            <ContactForm pack={pack} onSubmit={handleFormSubmit} />
+          ) : (
+            <PaymentInfo pack={pack} contact={contact} />
+          )}
+        </div>
       </DrawerContent>
     </Drawer>
   )

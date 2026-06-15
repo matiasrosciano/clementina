@@ -1,59 +1,83 @@
 import { raffleInfo } from '@/data/raffle'
-import { CalendarDays, Gift, Tv2 } from 'lucide-react'
+import { Particles } from '@/components/ui/particles'
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
+import { CalendarDays, Gift, Tv2, ChevronDown } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <section className="relative">
-      {/* Hero image */}
-      <div className="relative h-72 w-full overflow-hidden bg-zinc-900 sm:h-96">
-        {raffleInfo.images[0] ? (
+    <section className="relative min-h-[92dvh] flex flex-col overflow-hidden bg-white">
+      {/* Background image */}
+      {raffleInfo.images[0] && (
+        <div className="absolute inset-0">
           <img
             src={raffleInfo.images[0]}
-            alt="Sorteo Clementina"
-            className="h-full w-full object-cover opacity-60"
+            alt=""
+            className="h-full w-full object-cover opacity-10"
           />
-        ) : (
-          <div className="h-full w-full bg-gradient-to-br from-zinc-800 to-zinc-600" />
-        )}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center text-white">
-          <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
-            Sorteo oficial
-          </span>
-          <h1 className="text-3xl font-bold leading-tight sm:text-4xl">{raffleInfo.title}</h1>
-          <p className="text-sm text-white/80 sm:text-base">{raffleInfo.subtitle}</p>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white" />
+        </div>
+      )}
+
+      {/* Ambient glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(251,191,36,0.18),transparent)]" />
+
+      {/* Particles */}
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={60}
+        color="#d97706"
+        size={0.5}
+        staticity={60}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-16 pb-8 text-center">
+        {/* Badge */}
+        <div className="mb-5 inline-flex items-center rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5">
+          <AnimatedShinyText
+            className="text-xs font-semibold uppercase tracking-widest text-amber-700"
+            shimmerWidth={120}
+          >
+            ✦ Sorteo Oficial
+          </AnimatedShinyText>
+        </div>
+
+        {/* Title */}
+        <h1 className="mb-4 max-w-sm text-4xl font-black leading-[1.05] tracking-tight text-zinc-900 sm:max-w-lg sm:text-5xl">
+          {raffleInfo.title}
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mb-3 max-w-xs text-base text-zinc-500 sm:max-w-sm">
+          {raffleInfo.subtitle}
+        </p>
+
+        {/* Prize highlight */}
+        <div className="mb-8 inline-flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-5 py-2.5">
+          <Gift className="h-4 w-4 shrink-0 text-amber-600" />
+          <span className="text-sm font-semibold text-amber-800">{raffleInfo.prize}</span>
+        </div>
+
+        {/* Info pills */}
+        <div className="flex flex-wrap justify-center gap-2">
+          <InfoPill icon={<CalendarDays className="h-3.5 w-3.5" />} text={raffleInfo.drawDate} />
+          <InfoPill icon={<Tv2 className="h-3.5 w-3.5" />} text={raffleInfo.drawMethod} />
         </div>
       </div>
 
-      {/* Info cards */}
-      <div className="mx-auto max-w-lg space-y-4 px-4 py-6">
-        <p className="text-center text-sm text-zinc-600">{raffleInfo.description}</p>
-
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          <InfoCard icon={<Gift className="h-5 w-5" />} label="Premio" value={raffleInfo.prize} />
-          <InfoCard
-            icon={<CalendarDays className="h-5 w-5" />}
-            label="Fecha del sorteo"
-            value={raffleInfo.drawDate}
-          />
-          <InfoCard
-            icon={<Tv2 className="h-5 w-5" />}
-            label="Modalidad"
-            value={raffleInfo.drawMethod}
-          />
-        </div>
+      {/* Scroll indicator */}
+      <div className="relative z-10 flex justify-center pb-6 opacity-30">
+        <ChevronDown className="h-5 w-5 animate-bounce text-zinc-500" />
       </div>
     </section>
   )
 }
 
-function InfoCard({ icon, label, value }) {
+function InfoPill({ icon, text }) {
   return (
-    <div className="flex items-start gap-3 rounded-xl border border-zinc-100 bg-zinc-50 p-3">
-      <span className="mt-0.5 shrink-0 text-zinc-500">{icon}</span>
-      <div>
-        <p className="text-xs font-medium uppercase tracking-wide text-zinc-400">{label}</p>
-        <p className="text-sm font-semibold text-zinc-800">{value}</p>
-      </div>
+    <div className="flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs text-zinc-500">
+      <span className="text-zinc-400">{icon}</span>
+      {text}
     </div>
   )
 }
