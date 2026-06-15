@@ -14,6 +14,7 @@ export const ticketPacks = [
   { id: 2, cantidad: 2, precio: 15000 },
   { id: 3, cantidad: 3, precio: 19000 },
   { id: 4, cantidad: 5, precio: 28000 },
+  { id: 5, cantidad: 5, precio: 35000 },
 ]
 
 export const paymentInfo = {
