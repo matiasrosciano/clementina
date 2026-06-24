@@ -11,15 +11,15 @@ export const raffleInfo = {
 
 export const ticketPacks = [
   { id: 1, cantidad: 1, precio: 10000 },
-  { id: 2, cantidad: 2, precio: 15000 },
-  { id: 3, cantidad: 4, precio: 25000 },
-  { id: 4, cantidad: 6, precio: 35000 },
-  { id: 5, cantidad: 10, precio: 45000 },
+  { id: 2, cantidad: 2, precio: 16000 },
+  { id: 3, cantidad: 4, precio: 28000 },
+  { id: 4, cantidad: 6, precio: 36000 },
+  { id: 5, cantidad: 10, precio: 50000 },
   { id: 6, cantidad: 15, precio: 70000 },
   { id: 7, cantidad: 20, precio: 90000 },
   { id: 8, cantidad: 30, precio: 120000 },
-  { id: 9, cantidad: 50, precio: 150000 },
-  { id: 10, cantidad: 200, precio: 300000 },
+  { id: 9, cantidad: 50, precio: 175000 },
+  { id: 10, cantidad: 200, precio: 400000 },
 ]
 
 export const paymentInfo = {

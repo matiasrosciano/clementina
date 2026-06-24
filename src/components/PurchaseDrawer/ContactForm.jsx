@@ -11,6 +11,7 @@ function formatPrice(n) {
 export function ContactForm({ pack, onSubmit }) {
   const [form, setForm] = useState({ nombre: '', email: '', telefono: '' })
   const [errors, setErrors] = useState({})
+  const [accepted, setAccepted] = useState(false)
 
   function validate() {
     const e = {}
@@ -67,11 +68,35 @@ export function ContactForm({ pack, onSubmit }) {
         {errors.telefono && <p className="text-xs text-red-500">{errors.telefono}</p>}
       </div>
 
+      {/* Bases y condiciones */}
+      <label className="flex cursor-pointer items-start gap-3">
+        <input
+          type="checkbox"
+          checked={accepted}
+          onChange={(e) => setAccepted(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-amber-600"
+        />
+        <span className="text-xs text-zinc-500 leading-relaxed">
+          Leí y acepto las{' '}
+          <a
+            href="/bases-y-condiciones.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-amber-600 underline underline-offset-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            bases y condiciones
+          </a>{' '}
+          del sorteo.
+        </span>
+      </label>
+
       <ShimmerButton
         type="submit"
-        className="h-12 w-full text-base font-semibold"
+        disabled={!accepted}
+        className="h-12 w-full text-base font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
         shimmerColor="#fbbf24"
-        background="rgba(180, 83, 9, 1)"
+        background={accepted ? 'rgba(180, 83, 9, 1)' : 'rgba(161, 161, 170, 1)'}
         borderRadius="12px"
       >
         Continuar al pago
