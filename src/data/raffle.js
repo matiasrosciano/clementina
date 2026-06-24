@@ -23,11 +23,11 @@ export const ticketPacks = [
 ]
 
 export const paymentInfo = {
-  banco: 'Banco Galicia',
-  cbu: '0070999820000012345678',
-  alias: 'CLEMENTINA.ROPA',
-  titular: 'María Clementina García',
-  cuit: '27-30000000-3',
+  banco: 'FIWIND',
+  cbu: '0000267900000002589541',
+  alias: '27416389328.FIWIND',
+  titular: 'Agustina Ormachea',
+  cuit: '27-41638932-8',
 }
 
 export const whatsappNumber = '+5493815757844'
