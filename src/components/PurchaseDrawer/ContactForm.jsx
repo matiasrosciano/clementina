@@ -9,7 +9,7 @@ function formatPrice(n) {
 }
 
 export function ContactForm({ pack, onSubmit }) {
-  const [form, setForm] = useState({ nombre: '', email: '', telefono: '' })
+  const [form, setForm] = useState({ nombre: '', email: '', telefono: '', dni: '' })
   const [errors, setErrors] = useState({})
   const [accepted, setAccepted] = useState(false)
 
@@ -19,6 +19,8 @@ export function ContactForm({ pack, onSubmit }) {
     if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Ingresá un email válido'
     if (!form.telefono.trim() || form.telefono.replace(/\D/g, '').length < 8)
       e.telefono = 'Ingresá un teléfono válido'
+    if (!form.dni.trim() || form.dni.replace(/\D/g, '').length < 7)
+      e.dni = 'Ingresá un DNI válido'
     return e
   }
 
@@ -66,6 +68,13 @@ export function ContactForm({ pack, onSubmit }) {
         <Input id="telefono" type="tel" placeholder="011 1234-5678" value={form.telefono}
           onChange={(e) => field('telefono', e.target.value)} autoComplete="tel" />
         {errors.telefono && <p className="text-xs text-red-500">{errors.telefono}</p>}
+      </div>
+
+      <div className="space-y-1.5">
+        <Label htmlFor="dni">DNI</Label>
+        <Input id="dni" type="text" inputMode="numeric" placeholder="12345678" value={form.dni}
+          onChange={(e) => field('dni', e.target.value)} autoComplete="off" />
+        {errors.dni && <p className="text-xs text-red-500">{errors.dni}</p>}
       </div>
 
       {/* Bases y condiciones */}

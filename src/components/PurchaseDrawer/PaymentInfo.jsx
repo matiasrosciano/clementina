@@ -18,7 +18,7 @@ export function PaymentInfo({ pack, contact }) {
 
   const waMessage = encodeURIComponent(
     `Hola! Quiero comprar ${pack.cantidad} ${pack.cantidad === 1 ? 'boleto' : 'boletos'} del sorteo por ${formatPrice(pack.precio)}.\n` +
-    `Nombre: ${contact.nombre}\nTeléfono: ${contact.telefono}\n\nTe adjunto el comprobante de transferencia.`
+    `Nombre: ${contact.nombre}\nDNI: ${contact.dni}\nTeléfono: ${contact.telefono}\n\nTe adjunto el comprobante de transferencia.`
   )
   const waLink = `https://wa.me/${whatsappNumber}?text=${waMessage}`
 
