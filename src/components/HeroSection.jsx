@@ -2,7 +2,10 @@ import { raffleInfo } from '@/data/raffle'
 import logo from '@/data/logo.webp'
 import { Particles } from '@/components/ui/particles'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
+import { AuroraText } from '@/components/ui/aurora-text'
+import { NumberTicker } from '@/components/ui/number-ticker'
 import { CalendarDays, Gift, Tv2, ChevronDown } from 'lucide-react'
+import { formatDateAR } from '@/lib/formatDate'
 
 export function HeroSection() {
   return (
@@ -51,8 +54,19 @@ export function HeroSection() {
         </div>
 
         {/* Title */}
-        <h1 className="mb-4 max-w-sm text-4xl font-black leading-[1.05] tracking-tight text-zinc-900 sm:max-w-lg sm:text-5xl">
-          {raffleInfo.title}
+        <h1 className="mb-4 max-w-sm text-4xl font-black leading-[1.1] tracking-tight sm:max-w-lg sm:text-5xl">
+          <span className="block text-zinc-900">Gran Sorteo</span>
+          <span className="block text-zinc-500 text-2xl font-bold sm:text-3xl">por los</span>
+          <span className="block">
+            <AuroraText
+              colors={['#f59e0b', '#d97706', '#fbbf24', '#b45309', '#f59e0b']}
+              speed={0.8}
+            >
+              <NumberTicker value={10} className="text-inherit" />
+              {' años'}
+            </AuroraText>
+          </span>
+          <span className="block text-zinc-900">de Clementina</span>
         </h1>
 
         {/* Subtitle */}
@@ -68,7 +82,7 @@ export function HeroSection() {
 
         {/* Info pills */}
         <div className="flex flex-wrap justify-center gap-2">
-          <InfoPill icon={<CalendarDays className="h-3.5 w-3.5" />} text={raffleInfo.drawDate} />
+          <InfoPill icon={<CalendarDays className="h-3.5 w-3.5" />} text={formatDateAR(raffleInfo.drawDate)} />
           <InfoPill icon={<Tv2 className="h-3.5 w-3.5" />} text={raffleInfo.drawMethod} />
         </div>
       </div>

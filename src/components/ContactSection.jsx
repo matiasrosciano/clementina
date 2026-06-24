@@ -25,16 +25,6 @@ const items = [
     border: 'border-amber-200',
   },
   {
-    key: 'email',
-    icon: Mail,
-    label: 'Email',
-    value: contactInfo.email,
-    href: `mailto:${contactInfo.email}`,
-    color: 'text-sky-600',
-    bg: 'bg-sky-50',
-    border: 'border-sky-200',
-  },
-  {
     key: 'address',
     icon: MapPin,
     label: 'Showroom',

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ticketPacks, raffleInfo } from '@/data/raffle'
+import { formatDateAR } from '@/lib/formatDate'
 import { MagicCard } from '@/components/ui/magic-card'
 import { ShimmerButton } from '@/components/ui/shimmer-button'
 import { Ticket, Check } from 'lucide-react'
@@ -13,7 +14,7 @@ function formatPrice(n) {
 }
 
 const POPULAR_ID = 3
-const CLOSE_DATE = new Date('2026-06-29T23:55:00')
+const CLOSE_DATE = new Date(raffleInfo.drawDate)
 
 function useCountdown(target) {
   const [timeLeft, setTimeLeft] = useState(() => Math.max(0, target - Date.now()))
@@ -67,7 +68,7 @@ export function TicketOptions({ onSelect }) {
       {/* Countdown box */}
       <div className="mx-auto mt-6 max-w-lg rounded-2xl border-2 border-amber-400 bg-amber-50 px-5 py-4">
         <p className="mb-3 text-center text-sm font-semibold text-amber-900">
-          Sorteo {raffleInfo.prize} — {raffleInfo.drawDate} — cierra en
+          Sorteo {raffleInfo.prize} — {formatDateAR(raffleInfo.drawDate)} — cierra en
         </p>
         {expired ? (
           <p className="text-center text-sm font-bold text-red-600">¡El sorteo cerró!</p>
