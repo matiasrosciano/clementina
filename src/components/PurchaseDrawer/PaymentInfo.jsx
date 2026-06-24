@@ -24,8 +24,8 @@ export function PaymentInfo({ pack, contact }) {
 
   const fields = [
     { label: 'Banco', value: paymentInfo.banco, key: 'banco' },
-    { label: 'CBU', value: paymentInfo.cbu, key: 'cbu' },
-    { label: 'Alias', value: paymentInfo.alias, key: 'alias' },
+    { label: 'CBU', value: paymentInfo.cbu, key: 'cbu', copyable: true },
+    { label: 'Alias', value: paymentInfo.alias, key: 'alias', copyable: true },
     { label: 'Titular', value: paymentInfo.titular, key: 'titular' },
     { label: 'CUIT/CUIL', value: paymentInfo.cuit, key: 'cuit' },
   ]
@@ -47,13 +47,13 @@ export function PaymentInfo({ pack, contact }) {
       <div>
         <p className="mb-2.5 text-sm font-semibold text-zinc-700">Datos para la transferencia</p>
         <div className="divide-y divide-zinc-100 rounded-xl border border-zinc-200 bg-white">
-          {fields.map(({ label, value, key }) => (
+          {fields.map(({ label, value, key, copyable }) => (
             <div key={key} className="flex items-center justify-between gap-2 px-3 py-2.5">
               <div>
                 <p className="text-xs text-zinc-400">{label}</p>
                 <p className="text-sm font-medium text-zinc-900">{value}</p>
               </div>
-              <button
+              {copyable && <button
                 onClick={() => copy(value, key)}
                 className="shrink-0 rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors"
                 aria-label={`Copiar ${label}`}
@@ -61,7 +61,7 @@ export function PaymentInfo({ pack, contact }) {
                 {copiedField === key
                   ? <Check className="h-4 w-4 text-amber-500" />
                   : <Copy className="h-4 w-4" />}
-              </button>
+              </button>}
             </div>
           ))}
         </div>
