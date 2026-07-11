@@ -23,9 +23,9 @@ export const ticketPacks = [
 ]
 
 export const paymentInfo = {
-  banco: 'Belo',
-  cbu: '0000139300000018631126',
-  alias: 'clementina.sorteo',
+  banco: 'Brubank',
+  cbu: '1430001713016104220011',
+  alias: 'clementina.sorteo1',
   titular: 'Agustina Ormachea',
   cuit: '27-41638932-8',
 }
