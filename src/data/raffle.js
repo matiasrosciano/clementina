@@ -25,8 +25,8 @@ export const ticketPacks = [
 export const paymentInfo = {
   banco: 'Personal Pay',
   cbu: '0000076500000006672696',
-  alias: 'mariano.nardi.92',
-  titular: 'Mariano Nardi',
+  alias: 'mariano.nardi92',
+  titular: 'Mariano Ariel Nardi',
   cuit: '20-37191291-7',
 }
 
