@@ -88,7 +88,7 @@ export function ContactForm({ pack, onSubmit }) {
         <span className="text-xs text-zinc-500 leading-relaxed">
           Leí y acepto las{' '}
           <a
-            href="/bases-y-condiciones.pdf"
+            href="/bases-y-condiciones-v.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-amber-600 underline underline-offset-2"
